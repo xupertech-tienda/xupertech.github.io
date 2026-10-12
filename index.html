@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8"><title>xupertech | Electrónica e informática</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--bg2:#efefef;--fg:#000;--mute:#575757;--line:#cfcfcf;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#000;--bg2:#161616;--fg:#fff;--mute:#a6a6a6;--line:#333}}
+:root[data-theme="dark"]{--bg:#000;--bg2:#161616;--fg:#fff;--mute:#a6a6a6;--line:#333}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Space Grotesk",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;line-height:1.5}
+a{color:inherit}button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+[hidden]{display:none!important}
+.welcome{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;background:#000;color:#fff;position:relative;overflow:hidden}
+.welcome svg.bg{position:absolute;inset:0;width:100%;height:100%}
+.welcome .in{position:relative;flex:1;display:flex;flex-direction:column;justify-content:center;padding:48px 6vw;max-width:980px}
+.welcome h1{font-size:clamp(3.2rem,13vw,8rem);line-height:.92;letter-spacing:-.05em;margin:0 0 20px;font-weight:700}
+.welcome .lead{font-size:clamp(1.1rem,2.6vw,1.45rem);max-width:34ch;margin:0 0 28px;color:#d6d6d6}
+.btn{display:inline-block;border:2px solid currentColor;background:transparent;padding:12px 26px;font-weight:700;border-radius:999px;text-decoration:none}
+.btn.solid{background:#fff;color:#000;border-color:#fff}
+.btn:hover{opacity:.82}
+.contact-line{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:34px;color:#cfcfcf;font-size:.98rem}
+.credits{position:relative;padding:18px 6vw;border-top:1px solid #333;font-size:.9rem;color:#bdbdbd}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:18px;padding:12px 5vw;flex-wrap:wrap}
+.brand{font-weight:700;font-size:1.4rem;letter-spacing:-.04em;background:none;border:0;padding:0}
+header nav{display:flex;gap:18px;margin-left:auto;align-items:center;flex-wrap:wrap}
+header nav a{text-decoration:none}header nav a:hover{text-decoration:underline}
+.cart{border:1px solid var(--fg);border-radius:999px;padding:5px 14px;background:transparent}
+main{padding:0 5vw}
+.hero{padding:56px 0 28px;border-bottom:1px solid var(--line)}
+.hero h2{font-size:clamp(2rem,6vw,3.6rem);letter-spacing:-.04em;line-height:1;margin:0 0 12px;max-width:16ch}
+.hero p{color:var(--mute);max-width:52ch;margin:0}
+.filters{display:flex;gap:8px;flex-wrap:wrap;padding:22px 0}
+.filters button{border:1px solid var(--line);background:transparent;border-radius:999px;padding:7px 16px}
+.filters button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px;padding-bottom:48px}
+.card{border:1px solid var(--line);display:flex;flex-direction:column;border-radius:4px;overflow:hidden}
+.pic{background:var(--bg2);aspect-ratio:5/4;display:grid;place-items:center;padding:20px}
+.pic svg{width:70%;max-height:100%;fill:none;stroke:var(--fg);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.card .b{padding:14px 16px 16px;display:flex;flex-direction:column;gap:4px;flex:1}
+.card h3{margin:0;font-size:1.02rem;line-height:1.25}
+.card .s{color:var(--mute);font-size:.88rem;margin:0}
+.card .r{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:12px}
+.price{font-size:1.4rem;font-weight:700;letter-spacing:-.03em}
+.add{border:1px solid var(--fg);background:var(--fg);color:var(--bg);border-radius:999px;padding:6px 14px}
+.add:hover{opacity:.82}
+#contacto{border-top:1px solid var(--line);padding:44px 0}
+#contacto h2{font-size:clamp(1.6rem,4vw,2.4rem);letter-spacing:-.03em;margin:0 0 10px}
+#contacto p{margin:4px 0;color:var(--mute)}#contacto p strong{color:var(--fg)}
+footer.end{border-top:1px solid var(--line);padding:20px 5vw;color:var(--mute);font-size:.9rem}
+footer.end strong{color:var(--fg)}
+.ov{position:fixed;inset:0;z-index:20;background:rgba(0,0,0,.6);display:flex;justify-content:flex-end}
+.panel{background:var(--bg);color:var(--fg);width:min(440px,100%);height:100%;overflow-y:auto;padding:calc(env(safe-area-inset-top,0px) + 18px) 20px calc(env(safe-area-inset-bottom,0px) + 24px);border-left:1px solid var(--line)}
+.ph{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.ph h2{margin:0;font-size:1.5rem;letter-spacing:-.03em}
+.ph button{border:1px solid var(--line);background:transparent;border-radius:999px;width:36px;height:36px}
+.lines{list-style:none;margin:0;padding:0}
+.lines li{display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.lines span{display:block;color:var(--mute);font-size:.85rem}
+.q{display:flex;align-items:center;gap:8px}.q button{border:1px solid var(--line);background:transparent;border-radius:50%;width:30px;height:30px}
+.lt{font-weight:700;min-width:72px;text-align:right}
+.tot{display:flex;justify-content:space-between;font-size:1.2rem;padding:16px 0}
+.solid2{width:100%;text-align:center;background:var(--fg);color:var(--bg);border-color:var(--fg);margin-top:6px}
+.panel label{display:block;margin-bottom:12px;font-size:.9rem;color:var(--mute)}
+.panel input:not([type=radio]){display:block;width:100%;margin-top:4px;padding:10px;border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:4px;font:inherit}
+.panel fieldset{border:1px solid var(--line);border-radius:4px;margin:0 0 12px;padding:10px 12px}
+.panel fieldset label{color:var(--fg);margin:6px 0}
+.note{color:var(--mute);font-size:.85rem}.empty{color:var(--mute)}
+.lnk{display:block;margin:12px auto 0;background:none;border:0;text-decoration:underline}
+.ok{border:1px solid var(--fg);padding:6px 16px;margin:12px 0}
+#quejas{border-top:1px solid var(--line);padding:44px 0}
+#quejas h2{font-size:clamp(1.6rem,4vw,2.4rem);letter-spacing:-.03em;margin:0 0 10px}
+#quejas .intro{color:var(--mute);max-width:56ch;margin:0 0 18px}
+#qf{display:grid;gap:12px;max-width:560px}
+#qf label{display:block;font-size:.9rem;color:var(--mute)}
+#qf input,#qf textarea{display:block;width:100%;margin-top:4px;padding:10px;border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:4px;font:inherit}
+#qf textarea{min-height:130px;resize:vertical}
+#qf .btn{justify-self:start;background:var(--fg);color:var(--bg);border-color:var(--fg)}
+#qf .btn:disabled{opacity:.5;cursor:wait}
+#qs{min-height:1.4em;margin:0;font-weight:700}
+.hp{display:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style></head><body>
+
+<section class="welcome" id="inicio">
+<svg class="bg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<defs><radialGradient id="f" cx="75%" cy="45%" r="70%"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient><mask id="m"><rect width="800" height="600" fill="url(#f)"/></mask></defs>
+<g mask="url(#m)" fill="none" stroke="#fff" stroke-width="1.5" opacity=".55">
+<path d="M800 80H640l-40 40H480l-30 30V230"/><path d="M800 160H700l-50 50H540v90l-40 40"/><path d="M800 260H720l-40 40H600"/>
+<path d="M800 360H680l-50-50"/><path d="M800 440H620l-40-40H470"/><path d="M800 520H560l-60-60H380v-60"/>
+<path d="M640 120V20M540 210V90M450 150V50M600 300V180"/><rect x="520" y="250" width="110" height="110" rx="6"/><rect x="545" y="275" width="60" height="60" rx="3"/>
+<path d="M520 270h-30M520 300h-30M520 330h-30M630 270h30M630 300h30M630 330h30M550 360v28M575 360v28M600 360v28"/>
+<g fill="#fff"><circle cx="640" cy="20" r="5"/><circle cx="540" cy="90" r="5"/><circle cx="450" cy="50" r="5"/><circle cx="600" cy="180" r="5"/><circle cx="380" cy="400" r="5"/><circle cx="470" cy="400" r="5"/><circle cx="600" cy="300" r="4"/></g></g></svg>
+<div class="in">
+<h1>xupertech</h1>
+<p class="lead">Te damos la bienvenida. Electrónica e informática con buenos precios, en un solo lugar.</p>
+<div><button class="btn solid" id="enter">Entrar a la tienda</button></div>
+<div class="contact-line"><span>Teléfono: +1 (555) 010-0142</span><span>Correo: hola@xupertech.example</span></div>
+</div>
+<div class="credits">Creadores de la página: Alfonso Alvarado y Arwen Aguilar</div>
+</section>
+
+<div id="shop" hidden>
+<header class="top"><button class="brand" id="home" aria-label="Volver a la bienvenida">xupertech</button>
+<nav><a href="#catalogo">Catálogo</a><a href="#contacto">Contacto</a><a href="#quejas">Quejas</a><button class="cart" id="cart" type="button" aria-live="polite">Carrito: 0</button></nav></header>
+<main>
+<section class="hero" id="catalogo"><h2>Tecnología a buen precio</h2><p>Ordenadores, móviles, monitores, audio, periféricos y redes. Elige una categoría y añade lo que necesites.</p></section>
+<div class="filters" id="filters" role="group" aria-label="Categorías"></div>
+<div class="grid" id="grid"></div>
+<section id="contacto"><h2>Contacto</h2>
+<p><strong>Teléfono:</strong> +1 (555) 010-0142</p><p><strong>Correo:</strong> hola@xupertech.example</p><p>Atención de lunes a sábado, de 9:00 a 19:00.</p></section>
+<section id="quejas"><h2>Quejas y sugerencias</h2><p class="intro">¿Algo no salió bien? Cuéntanoslo y llegará directamente al buzón de la tienda.</p>
+<form id="qf"><label>Nombre<input name="name" required autocomplete="name"></label><label>Correo para responderte<input name="email" type="email" required autocomplete="email"></label><label>Número de pedido (opcional)<input name="pedido"></label><label>Tu queja o sugerencia<textarea name="message" required maxlength="2000"></textarea></label><input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off"><button class="btn" type="submit">Enviar queja</button><p id="qs" role="status" aria-live="polite"></p><p class="note">Al enviar, tu mensaje se manda al buzón de la tienda mediante el servicio Web3Forms. No escribas contraseñas ni datos de tarjeta.</p></form></section>
+</main>
+<footer class="end">Creadores de la página: <strong>Alfonso Alvarado</strong> y <strong>Arwen Aguilar</strong></footer>
+</div>
+
+<div class="ov" id="ov" hidden><aside class="panel" role="dialog" aria-modal="true" aria-labelledby="ct"><div class="ph"><h2 id="ct">Tu carrito</h2><button type="button" id="close" aria-label="Cerrar">✕</button></div><div id="cbody"></div></aside></div>
+
+<script>
+const I={
+laptop:'<rect x="18" y="14" width="64" height="42" rx="3"/><path d="M8 62h84l-6 6H14z"/>',
+tower:'<rect x="30" y="6" width="40" height="68" rx="4"/><circle cx="50" cy="22" r="6"/><path d="M38 46h24M38 54h24"/>',
+phone:'<rect x="34" y="6" width="32" height="68" rx="5"/><circle cx="50" cy="66" r="2"/>',
+tablet:'<rect x="22" y="10" width="56" height="60" rx="5"/><circle cx="50" cy="62" r="2"/>',
+monitor:'<rect x="12" y="10" width="76" height="46" rx="3"/><path d="M38 70h24M50 56v14"/>',
+head:'<path d="M24 52V44a26 26 0 0 1 52 0v8"/><rect x="18" y="50" width="12" height="20" rx="4"/><rect x="70" y="50" width="12" height="20" rx="4"/>',
+speaker:'<rect x="28" y="8" width="44" height="64" rx="6"/><circle cx="50" cy="26" r="7"/><circle cx="50" cy="50" r="12"/>',
+kb:'<rect x="8" y="22" width="84" height="38" rx="4"/><path d="M18 34h4M28 34h4M38 34h4M48 34h4M58 34h4M68 34h4M78 34h4M18 44h4M28 44h4M38 44h4M48 44h4M58 44h4M68 44h4M78 44h4M26 53h48"/>',
+mouse:'<rect x="34" y="8" width="32" height="60" rx="16"/><path d="M50 8v22"/>',
+cam:'<circle cx="50" cy="32" r="22"/><circle cx="50" cy="32" r="9"/><path d="M38 64h24M50 54v10"/>',
+print:'<rect x="24" y="6" width="52" height="22"/><rect x="10" y="28" width="80" height="30" rx="4"/><rect x="24" y="46" width="52" height="26"/>',
+router:'<rect x="10" y="44" width="80" height="20" rx="4"/><path d="M24 44L18 18M76 44L82 18"/><circle cx="26" cy="54" r="2"/><circle cx="36" cy="54" r="2"/>',
+ssd:'<rect x="14" y="18" width="72" height="44" rx="5"/><rect x="24" y="28" width="22" height="24"/><path d="M56 34h20M56 46h12"/>'};
+const P=[
+["Portátil Aero 14\" i5, 16 GB RAM, 512 GB SSD","Ordenadores","laptop",549,"Pantalla Full HD, 10 h de batería"],
+["Portátil Forge 15,6\" Ryzen 7, 16 GB, 1 TB","Ordenadores","laptop",729,"Para trabajo y juegos ligeros"],
+["PC de sobremesa Core Mini i5, 8 GB, 256 GB","Ordenadores","tower",499,"Compacto, WiFi y Bluetooth"],
+["Smartphone Nova 128 GB","Móviles y tablets","phone",199,"Pantalla 6,5\", cámara 50 MP"],
+["Smartphone Nova Pro 256 GB","Móviles y tablets","phone",299,"Pantalla AMOLED, carga rápida"],
+["Tablet Slate 10\" 64 GB","Móviles y tablets","tablet",149,"Ideal para estudiar y ver series"],
+["Monitor 24\" Full HD IPS","Monitores","monitor",119,"75 Hz, HDMI y VGA"],
+["Monitor 27\" QHD 144 Hz","Monitores","monitor",229,"Panel IPS, HDMI y DisplayPort"],
+["Auriculares inalámbricos con cancelación de ruido","Audio","head",59,"30 h de batería, Bluetooth 5"],
+["Altavoz Bluetooth portátil","Audio","speaker",35,"Resistente al agua, 12 h"],
+["Teclado mecánico retroiluminado","Periféricos","kb",45,"Switches rojos, distribución española"],
+["Ratón inalámbrico ergonómico","Periféricos","mouse",19,"Silencioso, 1600 DPI"],
+["Webcam Full HD con micrófono","Periféricos","cam",29,"1080p, enfoque automático"],
+["Impresora multifunción WiFi","Periféricos","print",89,"Imprime, copia y escanea"],
+["Router WiFi 6 doble banda","Redes y almacenamiento","router",49,"Cobertura para hogares medianos"],
+["SSD NVMe 1 TB","Redes y almacenamiento","ssd",64,"Lectura de hasta 3500 MB/s"]];
+const cats=["Todo",...new Set(P.map(p=>p[1]))];
+const $=id=>document.getElementById(id);let n=0,cur="Todo";
+function draw(){
+$("filters").innerHTML=cats.map(c=>`<button type="button" aria-pressed="${c===cur}" data-c="${c}">${c}</button>`).join("");
+$("grid").innerHTML=P.filter(p=>cur==="Todo"||p[1]===cur).map(p=>`<article class="card"><div class="pic"><svg viewBox="0 0 100 80" role="img" aria-label="${p[0].replace(/"/g,'&quot;')}">${I[p[2]]}</svg></div><div class="b"><h3>${p[0]}</h3><p class="s">${p[4]}</p><div class="r"><span class="price">${p[3]} €</span><button class="add" type="button" data-i="${P.indexOf(p)}">Añadir</button></div></div></article>`).join("");}
+$("filters").addEventListener("click",e=>{const b=e.target.closest("button");if(b){cur=b.dataset.c;draw();}});
+$("grid").addEventListener("click",e=>{const b=e.target.closest(".add");if(b){const i=b.dataset.i;C[i]=(C[i]||0)+1;badge();b.textContent="Añadido ✓";setTimeout(()=>{b.textContent="Añadir";},900);}});
+function go(shop){$("inicio").hidden=shop;$("shop").hidden=!shop;window.scrollTo(0,0);}
+$("enter").onclick=()=>go(true);$("home").onclick=()=>go(false);
+const C={};let step="cart",last=null;
+const eur=v=>v.toFixed(2).replace(".",",")+" €";
+const count=()=>Object.values(C).reduce((a,c)=>a+c,0);
+const total=()=>Object.entries(C).reduce((a,[i,q])=>a+P[i][3]*q,0);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function badge(){$("cart").textContent="Carrito: "+count();}
+function cartView(){const ks=Object.keys(C);
+ if(!ks.length)return '<p class="empty">Tu carrito está vacío.</p><button class="btn solid2" type="button" data-a="close">Seguir comprando</button>';
+ return '<ul class="lines">'+ks.map(i=>`<li><div><strong>${esc(P[i][0])}</strong><span>${eur(P[i][3])} c/u</span></div><div class="q"><button type="button" data-a="minus" data-i="${i}" aria-label="Quitar uno">−</button><span>${C[i]}</span><button type="button" data-a="plus" data-i="${i}" aria-label="Añadir uno">+</button></div><div class="lt">${eur(P[i][3]*C[i])}</div></li>`).join("")+'</ul><div class="tot"><span>Total</span><strong>'+eur(total())+'</strong></div><button class="btn solid2" type="button" data-a="checkout">Confirmar compra</button><button class="lnk" type="button" data-a="close">Seguir comprando</button>';}
+function payView(){return '<form id="f"><label>Nombre completo<input name="n" required autocomplete="name"></label><label>Correo<input name="e" type="email" required autocomplete="email"></label><label>Dirección de entrega<input name="d" required autocomplete="street-address"></label><fieldset><legend>Forma de pago</legend><label><input type="radio" name="m" value="Tarjeta (simulado)" checked> Tarjeta</label><label><input type="radio" name="m" value="Transferencia (simulado)"> Transferencia</label><label><input type="radio" name="m" value="Pago contra entrega (simulado)"> Pago contra entrega</label></fieldset><p class="note">Simulación: no se cobra nada ni se piden datos de tarjeta. Lo que escribas no se envía ni se guarda.</p><div class="tot"><span>Total a pagar</span><strong>'+eur(total())+'</strong></div><button class="btn solid2" type="submit">Confirmar pedido</button><button class="lnk" type="button" data-a="back">Volver al carrito</button></form>';}
+function doneView(){return `<div class="ok"><p><strong>¡Gracias por tu compra, ${esc(last.n)}!</strong></p><p>Número de pedido: <strong>${last.no}</strong></p><p>Forma de pago: ${esc(last.m)}</p><p>Total: <strong>${eur(last.t)}</strong></p></div><p class="note">Esto es una simulación de la tienda: no se ha cobrado nada ni se ha enviado ningún pedido real.</p><button class="btn solid2" type="button" data-a="close">Volver a la tienda</button>`;}
+function render(){$("ct").textContent=step==="cart"?"Tu carrito":step==="checkout"?"Confirmar compra":"Pedido confirmado";$("cbody").innerHTML=step==="cart"?cartView():step==="checkout"?payView():doneView();}
+function openCart(){step="cart";render();$("ov").hidden=false;$("close").focus();}
+function closeCart(){$("ov").hidden=true;}
+$("cart").onclick=openCart;$("close").onclick=closeCart;
+const KEY="PEGA_AQUI_TU_CLAVE";
+$("qf").addEventListener("submit",async e=>{e.preventDefault();const s=$("qs"),f=e.target;
+ if(KEY.startsWith("PEGA")){s.textContent="El buzón todavía no está conectado. Vuelve a intentarlo más tarde.";return;}
+ const b=f.querySelector("button");b.disabled=true;s.textContent="Enviando…";
+ try{const d=new FormData(f);d.append("access_key",KEY);d.append("subject","Nueva queja en xupertech");d.append("from_name","xupertech");
+  const r=await fetch("https://api.web3forms.com/submit",{method:"POST",body:d});const j=await r.json();
+  if(j.success){f.reset();s.textContent="¡Gracias! Tu mensaje fue enviado.";}else{s.textContent="No se pudo enviar. Inténtalo de nuevo.";}
+ }catch(err){s.textContent="No se pudo enviar. Revisa tu conexión e inténtalo de nuevo.";}
+ b.disabled=false;});
+$("ov").addEventListener("click",e=>{if(e.target===$("ov"))closeCart();});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeCart();});
+$("cbody").addEventListener("click",e=>{const b=e.target.closest("[data-a]");if(!b)return;const a=b.dataset.a,i=b.dataset.i;
+ if(a==="plus")C[i]++;
+ else if(a==="minus"){if(--C[i]<=0)delete C[i];}
+ else if(a==="checkout")step="checkout";
+ else if(a==="back")step="cart";
+ else if(a==="close"){closeCart();return;}
+ badge();render();});
+$("cbody").addEventListener("submit",e=>{e.preventDefault();const f=new FormData(e.target);last={no:"XT-"+Math.floor(100000+Math.random()*900000),n:f.get("n"),m:f.get("m"),t:total()};for(const k in C)delete C[k];badge();step="done";render();});
+draw();
+</script>
+</body></html>
